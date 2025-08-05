@@ -1,4 +1,4 @@
-window.location.href = "/judgment.html"
+window.location.href = "Joker-Smoker/judgment.html"
   ;document.getElementById("unlockBtn").addEventListener("click", async () => {
   const response = await fetch("/verify-token", {
     method: "POST",
