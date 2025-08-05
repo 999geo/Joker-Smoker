@@ -1,0 +1,105 @@
+  <title>Welcome to JOKER'S SERVER 💀</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background: radial-gradient(circle at top left, #3b003b, #000000);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 40px #ff00ff;
+    width: 360px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #ff00ff;
+    margin-bottom: 24px;
+    text-shadow: 0 0 10px #ff00ff;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #111;
+    border: 1px solid #aa00ff;
+    border-radius: 6px;
+    color: white;
+  }
+
+  .btn {
+    background: #ff00ff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: #ff33cc;
+  }
+
+  .switch {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
+  .switch a {
+    color: #ffccff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
+
+<div class="container" id="formBox">
+  <h2 id="modeTitle">Welcome to Joker's Server 💀</h2>
+  <form id="formArea">
+    <!-- Default: Create Account -->
+    <input type="email" placeholder="Email or Phone Number" name="contact" required>
+    <input type="password" placeholder="Password" name="password" required>
+    <button class="btn" type="submit">Create Account</button>
+    <div class="switch">
+      Already have access? <a onclick="toggleMode()">Login instead</a>
+    </div>
+  </form>
+</div>
+
+<script>
+  let loginMode = false;
+
+  function toggleMode() {
+    const title = document.getElementById('modeTitle');
+    const formArea = document.getElementById('formArea');
+    loginMode = !loginMode;
+
+    if (loginMode) {
+      title.innerText = "Enter Joker's Domain";
+      formArea.innerHTML = `
+        <input type="text" placeholder="Username / Email / Phone" name="identity" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <button class="btn" type="submit">Login</button>
+        <div class="switch">Need access? <a onclick="toggleMode()">Create Account</a></div>
+      `;
+    } else {
+      title.innerText = "Welcome to Joker's Server 💀";
+      formArea.innerHTML = `
+        <input type="email" placeholder="Email or Phone Number" name="contact" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <button class="btn" type="submit">Create Account</button>
+        <div class="switch">Already have access? <a onclick="toggleMode()">Login instead</a></div>
+      `;
+    }
+  }
+</script>
