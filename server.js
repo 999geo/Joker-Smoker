@@ -58,3 +58,21 @@ app.post('/login', async (req, res) => {
 app.listen(PORT, () =>
   console.log(`🃏 Joker's Server running at http://localhost:${PORT}`)
 );
+document.querySelector("#formArea").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const isLogin = loginMode; // from your toggle
+
+  const route = isLogin ? "/login" : "/register";
+  const res = await fetch(route, {
+    method: "POST",
+    body: formData,
+  });
+
+  const message = await res.text();
+  alert(message); // optional: show feedback
+
+  if (message.includes("✅") || message.includes("🔓")) {
+    window.location.href = "https://your-chaos-domain.com/dashboard.html"; // replace with your actual landing page
+  }
+});
