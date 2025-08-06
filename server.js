@@ -76,3 +76,5 @@ document.querySelector("#formArea").addEventListener("submit", async (e) => {
     window.location.href = "https://your-chaos-domain.com/dashboard.html"; // replace with your actual landing page
   }
 });
+app.post('/register', async (req, res) => { /* save user to users.json */ });
+app.post('/login', async (req, res) => { /* validate user and password */ });
