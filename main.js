@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alert(result);
 
     if (result.includes("✅") || result.includes("🔓")) {
-      window.location.href = "judgment.html"; // Redirect after successful login
+      window.location.href = "https://999geo.github.io/Joker-Smoker/judgment.html"; // Redirect after successful login
     }
   });
 });
