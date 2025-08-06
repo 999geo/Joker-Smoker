@@ -13,3 +13,27 @@ window.location.href = "/judgment.html"
     alert("Access denied. Try again.");
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("formArea").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    const route = loginMode ? "/login" : "/register";
+
+    const res = await fetch(route, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.text();
+    alert(result);
+
+    if (result.includes("✅") || result.includes("🔓")) {
+      window.location.href = "judgment.html"; // Redirect after successful login
+    }
+  });
+});
